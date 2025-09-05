@@ -3,42 +3,42 @@ package prototype
 import "testing"
 
 func TestPrototype(t *testing.T) {
-	circle := cloneRegistry[CircleShape]
-	rectangle := cloneRegistry[RectangleShape]
+	circleClone := cloneRegistry[CircleShape]
+	rectangleClone := cloneRegistry[RectangleShape]
 
-	c, ok := circle.(Circle)
+	circle, ok := circleClone.(Circle)
 	if !ok {
 		t.Errorf("Circle is not a circle")
 	}
 
-	c.Radius = 10
-	if c.Radius != 10 {
+	circle.Radius = 10
+	if circle.Radius != 10 {
 		t.Errorf("Circle radius is not 10")
 	}
 	
-	r, ok := rectangle.(Rectangle)
+	rectangle, ok := rectangleClone.(Rectangle)
 	if !ok {
 		t.Errorf("Rectangle is not a rectangle")
 	}
 
-	r.Length = 10
-	r.Width = 20
-	if r.Length != 10 {
+	rectangle.Length = 10
+	rectangle.Width = 20
+	if rectangle.Length != 10 {
 		t.Errorf("Rectangle length is not 10")
 	}
 
-	if r.Width != 20 {
+	if rectangle.Width != 20 {
 		t.Errorf("Rectangle width is not 20")
 	}
 
-	if c.ShapeType() != CircleShape {
+	if circle.ShapeType() != CircleShape {
 		t.Errorf("Circle clone is not a circle")
 	}
 
-	if r.ShapeType() != RectangleShape {
+	if rectangle.ShapeType() != RectangleShape {
 		t.Errorf("Rectangle clone is not a rectangle")
 	}
 
-	c.Display()
-	r.Display()
+	circle.Display()
+	rectangle.Display()
 }
