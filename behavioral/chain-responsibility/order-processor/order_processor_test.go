@@ -33,7 +33,6 @@ func TestOrderProcessor_Success(t *testing.T) {
 		t.Fatal("order should be processed here")
 	}
 }
-
 func TestOrderProcessor_ProcessedValidationFailure(t *testing.T) {
 
 	mockOrder := utils.GetProcessedMockOrder()
@@ -63,7 +62,6 @@ func TestOrderProcessor_ProcessedValidationFailure(t *testing.T) {
 		t.Fatal("order should return an 'already processed' error")
 	}
 }
-
 func TestOrderProcessor_InvalidOrderValidationFailure(t *testing.T) {
 
 	mockOrder := utils.GetInvalidMockOrder()
